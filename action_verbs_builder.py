@@ -1,0 +1,17 @@
+def action_verb_list():
+    action_verbs = []
+    s1 = 'Acted, Adapted, Combined, Composed, Conceptualized, Condensed, Created, Customized, Designed, Developed, Devised, Directed, Displayed, Entertained, Established, Fashioned, Formulated, Founded, Illustrated, Initiated, Instituted, Integrated, Introduced, Invented, Modeled, Modiﬁed, Originated, Performed, Photographed, Planned, Revised, Revitalized, Shaped, Solve'
+    s2 = ', Analyzed, Clarified, Collected, Compared, Conducted, Critiqued, Detected, Determined, Diagnosed, Evaluated, Examined, Experimented, Explored, Extracted, Formulated, Gathered, Identified, Inspected, Interpreted, Interviewed, Invented, Investigated, Located, Measured, Organized, Researched, Reviewed, Searched, Solved, Summarized, Surveyed, Systematized'
+    s3 = ', Accomplished, Administered, Advanced, Analyzed, Appointed, Approved, Assigned, Attained, Authorized, Chaired, Considered, Consolidated, Contracted, Controlled, Converted, Coordinated, Decided, Delegated, Developed, Directed, Eliminated, Emphasized, Enforced, Enhanced, Established, Executed, Generated, Handled, Headed, Hired, Hosted, Improved, Incorporated, Increased, Initiated, Inspected, Instituted, Led, Managed, Merged, Motivated, Navigated, Organized, Originated, Overhauled, Oversaw, Planned, Presided, Prioritized, Produced, Recommended, Reorganized, Replaced, Restored, Reviewed, Scheduled, Secured, Selected, Streamlined, Strengthened, Supervised, Terminated'
+    s4 = ', Administered, Adjusted, Allocated, Analyzed, Appraised, Assessed, Audited, Balanced, Budgeted, Calculated, Computed, Conserved, Controlled, Corrected, Decreased, Determined, Developed, Estimated, Forecasted, Managed, Marketed, Measured, Netted, Planned, Prepared, Programmed, Projected, Qualified, Reconciled, Reduced, Researched, Retrieved'
+    s5 = ', Acted, Adapted, Combined, Composed, Conceptualized, Condensed, Created, Customized, Designed, Developed, Devised, Directed, Displayed, Entertained, Established, Fashioned, Formulated, Founded, Illustrated, Initiated, Invented, Modeled, Modified, Originated, Performed, Photographed, Planned, Revised, Revitalized, Shaped, Solved'
+    s6 = ', Adapted, Advocated, Aided, Answered, Arranged, Assessed, Assisted, Clarified, Coached, Collaborated, Contributed, Cooperated, Counseled, Demonstrated, Diagnosed, Educated, Encouraged, Ensured, Expedited, Facilitated, Familiarized, Furthered, Guided, Helped, Insured, Intervened, Motivated, Prevented, Provided, Referred, Rehabilitated, Represented, Resolved, Simplified, Supplied, Supported, Volunteered'
+    s7 = ', Adapted, Applied, Assembled, Built, Calculated, Computed, Conserved, Constructed, Converted, Debugged, Designed, Determined, Developed, Engineered, Fabricated, Fortified, Installed, Maintained, Operated, Overhauled, Printed, Programmed, Rectified, Regulated, Remodeled, Repaired, Replaced, Restored, Solved, Specialized, Standardized, Studied, Upgraded, Utilized'
+    s8 = ', Adapted, Advised, Clarified, Coached, Communicated, Conducted, Coordinated, Critiqued, Developed, Enabled, Encouraged, Evaluated, Explained, Facilitated, Focused, Guided, Individualized, Informed, Installed, Instructed, Motivated, Persuaded, Simulated, Stimulated, Taught, Tested, Trained, Transmitted, Tutored'
+
+    final_s = s1+s2+s3+s4+s5+s6+s7+s8
+    for i in final_s.split(', '):
+        if i not in action_verbs:
+            action_verbs.append(i)
+    return(action_verbs)
+
