@@ -1,7 +1,7 @@
 from action_verbs_builder import action_verb_list
 action_verbs = action_verb_list()
 action_verbs.extend(["intern", "developed", "worked", "engineer", "team", "collaborated", 
-                       "managed", "project", "designed", "led", "lead", "contributed", "analyst", "facilitated"])
+                       "managed", "project", "designed", "led", "lead", "contributed", "analyst", "facilitated", "oversaw", "planned"])
 section_keywords = {
     "Education": [
         "gpa", "bachelor", "master", "phd", "university", "college", "degree",
@@ -10,7 +10,7 @@ section_keywords = {
     "Experience": action_verbs,
     "Skills": [
         "skills", "languages", "tools", "frameworks", "technologies", "proficient",
-        "familiar", "knowledge of", "expertise", "experience with", "fluent"
+        "familiar", "knowledge of", "expertise", "experience with", "fluent", "code"
     ],
     "Projects": [
         "project", "built", "created", "designed", "developed", "implemented",

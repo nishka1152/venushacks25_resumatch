@@ -16,7 +16,9 @@ sample_data = ['Bachelor of Science in Computer Science, UC Irvine',
                 'Tools: Git, Docker, Postman', 
                 'Built a resume parser using NLP and machine learning', 
                 'Created a full-stack task manager app using MERN stack', 
-                'Implemented sentiment analysis tool for Reddit comments', 
+                'Implemented sentiment analysis tool for Reddit comments',
+                'Can code in C++',
+                'Oversaw daily activity and outing planning for 100 clients',
                 'AWS Certified Solutions Architect – Associate', 
                 'Google IT Support Professional Certificate', 
                 'References available upon request', 
@@ -38,7 +40,7 @@ print(vectorizer.get_feature_names_out())
 model = LogisticRegression()
 model.fit(X, labels)
 
-new_line = "can code in python"
+new_line = "Assisted families of special needs clients with researching financial assistance and healthcare"
 X_new = vectorizer.transform([new_line])
 
 pred = model.predict(X_new)[0]
