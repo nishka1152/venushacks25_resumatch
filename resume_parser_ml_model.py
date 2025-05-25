@@ -6,6 +6,7 @@ from resume_parser import pdf_to_python_list
 
 def section_generator():
     sample_data = ['Bachelor of Science in Computer Science, UC Irvine', 
+                   'BS in Early Childhood Development (1999)', 'BA in Elementary Education',
                 'Graduated with a GPA of 3.8/4.0', "Dean's List", 
                 'Honors', 
                 'Summa Cum Laude', 
@@ -55,6 +56,7 @@ def section_generator():
 
     return sections
     
+print(section_generator()["Other"])
 
 
 
