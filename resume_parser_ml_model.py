@@ -47,17 +47,14 @@ def section_generator():
     resume_lines = pdf_to_python_list(pdf_path_test)
     sections = {"Education": [], "Experience": [], "Other": [], "Skills": [], "Projects": [], "Certifications": []}
     for i in resume_lines:
-        # print(i)
         X_new = vectorizer.transform([i])
 
         pred = model.predict(X_new)[0]
-        # print("Predicted Section:", pred)
         sections[pred].append(i)
 
     return sections
     
-print(section_generator()["Other"])
-
+print(section_generator())
 
 
     
