@@ -14,5 +14,4 @@ def pdf_to_python_list(pdf_path: str) -> str:
 
     lines = [line.strip() for line in text.split('\n') if line.strip()]
 
-    formatted = 'raw_lines = [\n' + ',\n'.join(f'    "{line}"' for line in lines) + '\n]'
-    return formatted
+    return lines
