@@ -1,8 +1,8 @@
 import fitz  # PyMuPDF
 import re
 
-def pdf_to_python_list(pdf_path: str) -> str:
-    doc = fitz.open(pdf_path)
+def pdf_to_python_list(file_obj) -> list:
+    doc = fitz.open(stream=file_obj.read(), filetype='pdf')
     text = ""
     for page in doc:
         text += page.get_text()
