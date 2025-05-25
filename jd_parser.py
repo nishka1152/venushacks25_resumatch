@@ -38,7 +38,7 @@ def extract_job_features(jd_text: str) -> dict:
     tfidf_scores = tfidf_matrix.toarray()[0]
     top_n = 10
     top_indices = tfidf_scores.argsort()[-top_n:][::-1]
-    top_keywords = [(feature_array[i], round(tfidf_scores[i], 3)) for i in top_indices]
+    top_keywords = [(feature_array[i], float(round(tfidf_scores[i], 3))) for i in top_indices]
 
     # Sentence embeddings
     _ = embedding_model.encode(sentences)  # Ready if you use it later
