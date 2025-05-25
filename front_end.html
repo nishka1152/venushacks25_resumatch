@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResuMatch - Resume Matcher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    textarea, input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .results {
+      margin-top: 20px;
+    }
+    .result-item {
+      padding: 10px;
+      background: #f9f9f9;
+      margin-bottom: 10px;
+      border-left: 4px solid #007BFF;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ResuMatch</h1>
+    <p>Upload a resume and paste a job description to get a compatibility score.</p>
+
+    <label>Upload Resume (PDF)</label>
+    <input type="file" id="resumeUpload" accept="application/pdf" />
+
+    <label>Paste Job Description</label>
+    <textarea id="jobDescription" rows="10" placeholder="Paste job description here..."></textarea>
+
+    <button onclick="submitMatch()">Match Resume</button>
+
+    <div class="results" id="results"></div>
+  </div>
+
+  <script>
+    async function submitMatch() {
+      const fileInput = document.getElementById('resumeUpload');
+      const jd = document.getElementById('jobDescription').value;
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = 'Loading...';
+
+      if (!fileInput.files.length || !jd.trim()) {
+        alert('Please upload a PDF resume and enter a job description.');
+        resultsDiv.innerHTML = '';
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('resume', fileInput.files[0]);
+      formData.append('job_description', jd);
+
+      try {
+        const res = await fetch('/api/match', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data && data.score) {
+          resultsDiv.innerHTML = `
+            <div class="result-item">
+              <strong>Experience Match:</strong> ${data.score.experience_score} <br/>
+              <strong>Degree Match:</strong> ${data.score.degree_match} <br/>
+              <strong>Total Score:</strong> ${data.score.total_score} <br/>
+              <strong>Tech Skill Match:</strong> ${data.score.tech_skill_match} <br/>
+              <strong>Soft Skill Match:</strong> ${data.score.soft_skill_match} <br/>
+              <strong>Language Match:</strong> ${data.score.language_match}
+            </div>
+          `;
+        } else {
+          resultsDiv.innerHTML = '<p>Unable to compute match. Please try again.</p>';
+        }
+      } catch (err) {
+        console.error(err);
+        resultsDiv.innerHTML = '<p>Error processing your request.</p>';
+      }
+    }
+  </script>
+</body>
+</html>
