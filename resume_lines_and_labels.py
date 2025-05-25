@@ -18,7 +18,7 @@ section_keywords = {
     ],
     "Certifications": [
         "certified", "certification", "certificate", "aws", "coursera", "udemy",
-        "google", "microsoft"
+        "google", "microsoft", "verified", "verification"
     ],
     "Other": [
         "reference", "portfolio", "available upon", "personal website", "linkedin",
