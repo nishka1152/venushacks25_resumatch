@@ -3,14 +3,19 @@ from jd_parser import extract_job_features
 from resume_parser import pdf_to_python_list
 from jd_resume_strength import section_generator, final_score_checking
 import traceback
+from flask import render_template
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='static', template_folder='templates')
+
 
 @app.route('/')
 def index():
-    return send_file('front_end.html')
+    return render_template('front_end.html')
 
-@app.route('/api/match', methods=['POST'])
+
+
+@app.route('/api/match', methods = ['POST'])
 def match():
     if 'resume' not in request.files or 'job_description' not in request.form:
         return jsonify({'error': 'Missing input'}), 400
@@ -33,7 +38,6 @@ def match():
 
         # 5. Return all score fields for front end
 
-    
         score = final_score_checking(resume_section_dict, jd_dict)
 
         return jsonify({
@@ -55,4 +59,4 @@ def match():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug = True)
