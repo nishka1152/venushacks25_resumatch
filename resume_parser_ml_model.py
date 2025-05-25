@@ -54,7 +54,7 @@ def section_generator():
 
     return sections
     
-print(section_generator())
+
 
 
     
