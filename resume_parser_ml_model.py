@@ -2,6 +2,8 @@ from resume_lines_and_labels import dataframe_builder
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 
+from resume_parser import pdf_to_python_list
+
 sample_data = ['Bachelor of Science in Computer Science, UC Irvine', 
                'Graduated with a GPA of 3.8/4.0', "Dean's List", 
                'Honors', 
@@ -35,13 +37,14 @@ labels = list(test_data["label"])
 
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(texts)
-print(vectorizer.get_feature_names_out())
+#print(vectorizer.get_feature_names_out())
 
 model = LogisticRegression()
 model.fit(X, labels)
-
-new_line = "Assisted families of special needs clients with researching financial assistance and healthcare"
-X_new = vectorizer.transform([new_line])
-
-pred = model.predict(X_new)[0]
-print("Predicted Section:", pred)
+pdf_path_test = '/Users/nishkajain/Desktop/functionalsample.pdf'
+resume_lines = pdf_to_python_list(pdf_path_test)
+print(resume_lines)
+#for i in resume_lines:
+    
+    #print(i)
+    
