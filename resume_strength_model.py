@@ -97,4 +97,4 @@ predicted_score = model.predict(X_new)[0]
 
 print(f"Predicted Resume Strength Score: {round(predicted_score)}/100")
 
-
+# pushing
